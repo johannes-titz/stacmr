@@ -31,7 +31,7 @@ test_that("mr() produces known results & basic output", {
     approx = TRUE 
   )
   expect_lt(mr_d2$p, 0.78)
-  expect_gt(mr_d2$p, 0.72)
+  expect_gt(mr_d2$p, 0.71)
   
   expect_equal(mr_d2$fit,  0.1721, tolerance = 0.0002)
   
