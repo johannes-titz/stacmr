@@ -5,8 +5,9 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/monotonicity/stacmr.svg?branch=master)](https://travis-ci.org/monotonicity/stacmr)
+[![R-CMD-check](https://github.com/monotonicity/stacmr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/monotonicity/stacmr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/monotonicity/stacmr/graph/badge.svg)](https://app.codecov.io/gh/monotonicity/stacmr)
 <!-- badges: end -->
 
 The goal of `stacmr` is to provide functionality for state-trace
@@ -100,7 +101,7 @@ st_d1  ## basic information about conjoint-monotonic model
 #> 
 #> Fit value (SSE): 1.653
 #> Fit difference to MR model (SSE): 1.653
-#> p-value (based on 10000 samples): 0.347
+#> p-value (based on 10000 samples): 0.3494
 
 summary(st_d1)  ## basic information plus estimated cell means
 #> 
@@ -111,7 +112,7 @@ summary(st_d1)  ## basic information plus estimated cell means
 #> 
 #> Fit value (SSE): 1.653
 #> Fit difference to MR model (SSE): 1.653
-#> p-value (based on 10000 samples): 0.347 
+#> p-value (based on 10000 samples): 0.3494 
 #> 
 #> Estimated cell means:
 #>   rule.based information.integration within  between
@@ -148,7 +149,7 @@ st_d3
 #> 
 #> Fit value (SSE): 1.749
 #> Fit difference to MR model (SSE): 1.577
-#> p-value (based on 1000 samples): 0.161
+#> p-value (based on 1000 samples): 0.155
 summary(st_d3)
 #> 
 #> CMR fit to 8 data points with call:
@@ -158,7 +159,7 @@ summary(st_d3)
 #> 
 #> Fit value (SSE): 1.749
 #> Fit difference to MR model (SSE): 1.577
-#> p-value (based on 1000 samples): 0.161 
+#> p-value (based on 1000 samples): 0.155 
 #> 
 #> Estimated cell means:
 #>   rule.based information.integration within  between
@@ -171,3 +172,42 @@ summary(st_d3)
 #> 7     0.5898                  0.5167     B3 no delay
 #> 8     0.6265                  0.5318     B4 no delay
 ```
+
+## Changes to upstream JT
+
+- singmann changes are starting on may 24, 2019
+- kalish repo last change before that is on february 28, 2019
+- kalish repo had changes made after may 24, 2019
+
+The only file that was massively chaned is gen2list.R, which is
+basically a rewrite.
+
+Otherwise we can just take the upstream files. As far as I can see, the
+cahnges were cosmetic, mainly returning more information in the output
+(e.g. bootstrap means), although one change appears to be a bug fix,
+where nCond is changed from length(y\[\[1\]\]\[\[1\]\] to
+length(y\[\[1\]\]\[\[1\]\]\[1,\])), but that seems to be for
+list-inputs, not for data-frames.
+
+what is missing in stacmr is staCMRFIT.R (testing the difference between
+fits of monotonic model and partial order model) and staMRFIT.R (testing
+the fit of a partial order), which are replaced by cmr and mr,
+respectively in continuous_state-trace.R. So changes in staCMRFIT.R and
+staMRFIT.R must be tracked carefully. The changes to date included
+adding `pars` to the output, that’s it.
+
+## todos JT
+
+What is generally missing in stacmr is a wrapper for binomial data. This
+is currently in the dunn & kalish format in the files that include BN.
+
+in the upstream code pars argument is missing in jMRfits.R -\> this is
+is definitely an issue that should be filed in STA
+
+we need to think about maintaining the code…is it better to rely on
+upstream R wrappers or on own R wrappers? if there are any changes to
+upstream code, it might be a mess to integrate them, then again the
+original wrappers are not ideal anyway.
+
+can we get this on cran with java binaries? or building on cran with
+maven?
