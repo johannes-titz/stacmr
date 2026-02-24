@@ -7,3 +7,7 @@ examples
 development
 development.R
 ^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
