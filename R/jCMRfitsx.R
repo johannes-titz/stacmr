@@ -86,5 +86,6 @@ jCMRfitsx <- function(nsample, y, model, E=list(), shrink=-1, proc=-1, cheapP=FA
   }
   pars = .jevalArray(sol$getXStars(),simplify=F)
   
-  return(list(p = sol$getP(), datafit = sol$getDataFit(), fits = sol$getFits(), pars = pars))
+  return(list(p = sol$getP(), datafit = sol$getDataFit(), fits = sol$getFits(),
+              pars = pars))
 }
