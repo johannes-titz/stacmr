@@ -1,16 +1,9 @@
-#' CMR State-Trace Analysis
-#' @rdname continuous_cmr
-#' @aliases continuous_cmr
-#' 
-#' @description 
+#' Coupled Monotonic Regression
 #' 
 #' `cmr` is the main function that conducts the CMR (state-trace) analysis for
 #' continuous data. It takes the data as a `data.frame` and an optional partial
 #' order and returns a fitted model object of class `stacmr`. It fits the
 #' conjoint monotonic model to the data and calculates the *p*-value.
-#' 
-#' `mr` conducts monotonic regression on a data structure according to a
-#' given partial order. 
 #' 
 #' @param  data `data.frame` containing data aggregated by participant and
 #'   relevant variables in columns.
@@ -180,6 +173,41 @@ cmr <- function (data,
   return (out)
 }
 
+#' Monotonic Regression
+#'
+#' `mr` conducts monotonic regression on a data structure according to a
+#' given partial order. 
+#' 
+#' @param  data `data.frame` containing data aggregated by participant and
+#'   relevant variables in columns.
+#' @param  col_value `character`. Name of column in `data` containing numerical
+#'   values for analysis (i.e., responses).
+#' @param col_participant `character`. Name of column in `data` containing the
+#'   participant identifier.
+#' @param col_dv `character`. Name of column in `data` containing the dependent
+#'   variable(s) spanning the state-trace axes.
+#' @param col_within `character`, optional. Name of column(s) in `data`
+#'   containing the within-subjects variables.
+#' @param col_between `character`, optional. Name of column(s) in `data`
+#'   containing the between-subjects variables.
+#' @param partial defines a partial order. Either a `character` or a named
+#'   `list` of characters. See details for ways to specify a partial order.
+#' @param test logical. If `TRUE` (the default) *p*-value is calculated based
+#'   double-bootsrap procedure with `nsamples`. If `FALSE`, no test statistic is
+#'   approximated and model is only fit.
+#' @param nsample number of bootstrap samples to empirically approximate the
+#'   null distribution (default is 1000, but about 10000 is probably better).
+#'   Only used if `test = TRUE`.
+#' @param  shrink Shrinkage parameter (see [sta_stats]). Default calculates
+#'   optimum amount of shrinkage.
+#' @param approx `FALSE` (the default) uses full algorithm, `TRUE` uses an
+#'   approximate algorithm that should be used for large problems.
+#' @param tolerance tolerance used during optimization for numerical stability
+#'   (function values smaller than `tolerance` are set to 0)
+#'   
+#' @example examples/examples.delay.R
+#' @import rJava
+#' 
 #' @export
 mr <- function (data, 
                 col_value, col_participant, col_dv, 
