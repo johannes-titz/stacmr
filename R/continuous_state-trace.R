@@ -80,7 +80,8 @@ cmr <- function (data,
                      col_within = col_within, 
                      col_between = col_between)
   stats_df <- summary(stats)
-  
+  nvar <- length(stats) # is this correct? JT
+
   adj_mat <- make_adj_matrix(
     data = data,
     data_list = data_list, 
@@ -136,11 +137,26 @@ cmr <- function (data,
                           proc = proc, cheapP = cheapP, approximate = approx, 
                           mrTol = mrTol, seed = seed) # call java program
     test_out$fits[which(test_out$fits <= tolerance)] = 0;
+    test_out$datafit[which(test_out$datafit <= tolerance)] = 0;
+    ncond <- dim(test_out$pars[[1]])[2] # maybe there is a more intuitive way JT
+
     # output:
     # p = empirical p-value
     # datafit = observed fit of monotonic (1D) model
     # fits = nsample vector of fits of Monte Carlo samples (it is against this
     # distribution that datafit is compared to calculate p)
+    
+    # unpack bootstrap means
+    z = array(0,dim=c(nvar,ncond,nsample))
+    for (isample in 1:nsample) {
+      z[,,isample] = .jevalArray(test_out$pars[[isample]],simplify=T)
+    }
+    a = vector("list", nvar)
+    z = aperm(z,c(3,2,1))
+    for (ivar in 1:nvar){
+      a[[ivar]] = z[,,ivar]
+    }
+    out$pars = a;
     
     out$p <- test_out$p
     out$fit_diff <- test_out$datafit
@@ -151,6 +167,7 @@ cmr <- function (data,
     out$p <- NA
     out$fit_diff <- NA
     out$fit_null_dist <- NA
+    out$pars <- NA
     attr(out, "nsample") <- 0
   }
   
@@ -254,6 +271,21 @@ mr <- function (data,
     # fits = nsample vector of fits of Monte Carlo samples (it is against this
     # distribution that datafit is compared to calculate p)
     
+    test_out$datafit[which(test_out$datafit <= tolerance)] = 0;
+    ncond <- dim(test_out$pars[[1]])[2] # maybe there is a more intuitive way JT
+    
+    # unpack bootstrap means
+    z = array(0,dim=c(nvar,ncond,nsample))
+    for (isample in 1:nsample) {
+      z[,,isample] = .jevalArray(test_out$pars[[isample]],simplify=T)
+    }
+    a = vector("list", nvar)
+    z = aperm(z,c(3,2,1))
+    for (ivar in 1:nvar){
+      a[[ivar]] = z[,,ivar]
+    }
+    out$pars = a;
+    
     out$p <- test_out$p
     out$fit_null_dist <- test_out$fits
     attr(out, "nsample") <- nsample
@@ -261,6 +293,7 @@ mr <- function (data,
   } else {
     out$p <- NA
     out$fit_null_dist <- NA
+    out$pars <- NA
     attr(out, "nsample") <- 0
   }
   

@@ -75,6 +75,7 @@ jMRfits <- function(nsample, y, E=list(), shrink=-1, proc=-1) {
       sol <- problemMaker$solve(as.integer(nsample),as.integer(proc),FALSE,TRUE);
     }
   }
-  
-  return(list(p = sol$getP(), fits = sol$getFits(),datafit = sol$getDataFit()))
+  pars = .jevalArray(sol$getXStars(),simplify=F)
+  return(list(p = sol$getP(), fits = sol$getFits(), datafit = sol$getDataFit(),
+              pars = pars))
 }
