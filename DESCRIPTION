@@ -15,7 +15,8 @@ License: GPL-2
 Imports: 
     magic,
     ggplot2,
-    stats
+    stats,
+    methods
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Suggests: 
