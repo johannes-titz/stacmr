@@ -26,7 +26,7 @@ test_that("symbolic partial order specification", {
   )
   
   expect_identical(mr_symbolic$partial, mr_auto$partial)
-  expect_equivalent(mr_symbolic$estimate, mr_auto$estimate)
+  expect_equal(mr_symbolic$estimate, mr_auto$estimate, ignore_attr = T)
 
   ## Partial order can also be specified partially symbolically:
   mr_pa1 <- mr(
@@ -43,7 +43,7 @@ test_that("symbolic partial order specification", {
     )
   )
   expect_identical(mr_pa1$partial, mr_auto$partial)
-  expect_equivalent(mr_pa1$estimate, mr_auto$estimate)
+  expect_equal(mr_pa1$estimate, mr_auto$estimate, ignore_attr = T)
   
   mr_pa2 <- mr(
     data = delay, 
@@ -59,7 +59,7 @@ test_that("symbolic partial order specification", {
     )
   )
   expect_identical(mr_pa2$partial, mr_auto$partial)
-  expect_equivalent(mr_pa2$estimate, mr_auto$estimate)
+  expect_equal(mr_pa2$estimate, mr_auto$estimate, ignore_attr = T)
   
   mr_pa3 <- mr(
     data = delay, 
@@ -75,7 +75,7 @@ test_that("symbolic partial order specification", {
     )
   )
   expect_identical(mr_pa3$partial, mr_auto$partial)
-  expect_equivalent(mr_pa3$estimate, mr_auto$estimate)
+  expect_equal(mr_pa3$estimate, mr_auto$estimate, ignore_attr = T)
 
   mr_pa4 <- mr(
     data = delay, 
@@ -91,7 +91,7 @@ test_that("symbolic partial order specification", {
     )
   )
   expect_identical(mr_pa4$partial, mr_auto$partial)
-  expect_equivalent(mr_pa4$estimate, mr_auto$estimate)
+  expect_equal(mr_pa4$estimate, mr_auto$estimate, ignore_attr = T)
 
   mr_sym2 <- mr(
     data = delay, 
@@ -107,7 +107,7 @@ test_that("symbolic partial order specification", {
     )
   )
   expect_identical(mr_sym2$partial, mr_auto$partial)
-  expect_equivalent(mr_sym2$estimate, mr_auto$estimate)
+  expect_equal(mr_sym2$estimate, mr_auto$estimate, ignore_attr = T)
   
   mr_0 <- mr(
     data = delay, 
