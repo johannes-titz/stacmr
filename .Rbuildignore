@@ -11,3 +11,7 @@ development.R
 ^docs$
 ^pkgdown$
 ^\.github$
+^build\.sh$
+^kalish-changes\.txt$
+^singman-changes\.txt$
+^java$
