@@ -4,7 +4,9 @@
 \name{delay}
 \alias{delay}
 \title{Experiment 1 of Dunn, Newell, & Kalish (2012)}
-\format{An object of class \code{data.frame} with 520 rows and 5 columns.}
+\format{
+An object of class \code{data.frame} with 520 rows and 5 columns.
+}
 \source{
 Dunn, J. C., Newell, B. R., & Kalish, M. L. (2012). The effect of
 feedback delay and feedback type on perceptual category learning: The

@@ -17,7 +17,7 @@ cmr(
   nsample = 1000,
   shrink = -1,
   approx = FALSE,
-  tolerance = 1e-04
+  tolerance = 0.0001
 )
 }
 \arguments{
