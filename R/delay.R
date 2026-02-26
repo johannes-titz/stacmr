@@ -1,5 +1,6 @@
 #' Experiment 1 of Dunn, Newell, & Kalish (2012)
 #' 
+#' @format ## `delay`
 #' Data from 130 `participant`s with two between-participants factors (`delay`
 #' and `structure`) with two levels each and one within-participants factor
 #' (`block`) with four levels. The dependent variable is proportion correct
@@ -34,12 +35,11 @@
 #'   feedback delay and feedback type on perceptual category learning: The
 #'   limits of multiple systems. \emph{Journal of Experimental Psychology:
 #'   Learning, Memory, and Cognition}, 38(4), 840-859.
-#'   \url{https://doi.org/10.1037/a0027867}
+#'   \doi{10.1037/a0027867}
 #'   
 #' @references Maddox, W. T., & Ing, A. D. (2005). Delayed Feedback Disrupts the
 #'   Procedural-Learning System but Not the Hypothesis-Testing System in
 #'   Perceptual Category Learning. *Journal of Experimental Psychology: Learning,
 #'   Memory, and Cognition*, 31(1), 100-107.
-#'   \url{https://doi.org/10.1037/0278-7393.31.1.100}
-#' @example examples/examples.delay.R
+#'   \doi{10.1037/0278-7393.31.1.100}
 "delay"
