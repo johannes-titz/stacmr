@@ -14,4 +14,3 @@ development.R
 ^build\.sh$
 ^kalish-changes\.txt$
 ^singman-changes\.txt$
-^java$
