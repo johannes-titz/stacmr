@@ -1,6 +1,7 @@
 #' Experiment 1 of Dunn, Newell, & Kalish (2012)
 #' 
 #' @format ## `delay`
+#' 
 #' Data from 130 `participant`s with two between-participants factors (`delay`
 #' and `structure`) with two levels each and one within-participants factor
 #' (`block`) with four levels. The dependent variable is proportion correct
@@ -30,6 +31,13 @@
 #' or 0.5 s (Delay condition) before the next trial commenced. The sequence and
 #' timing of these events were same as those used by Maddox and Ing (2005).
 #' 
+#' \describe{
+#'   \item{participant}{id}
+#'   \item{delay}{delay condition (delay or no delay)}
+#'   \item{strucutre}{rule-based or information-integration}
+#'   \item{block}{block number}
+#'   \item{pc}{percent correct}
+#' }
 #'
 #' @source Dunn, J. C., Newell, B. R., & Kalish, M. L. (2012). The effect of
 #'   feedback delay and feedback type on perceptual category learning: The

@@ -14,3 +14,4 @@ development.R
 ^build\.sh$
 ^kalish-changes\.txt$
 ^singman-changes\.txt$
+^data-raw$
