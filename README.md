@@ -37,7 +37,6 @@ This is a basic example.
 
 ``` r
 library(stacmr)
-#> Loading required package: rJava
 ## load data from Exp. 1 of Dunn, Newell, & Kalish (2012)
 data(delay)
 str(delay, width = 78, strict.width = "cut")
@@ -101,7 +100,7 @@ st_d1  ## basic information about conjoint-monotonic model
 #> 
 #> Fit value (SSE): 1.653
 #> Fit difference to MR model (SSE): 1.653
-#> p-value (based on 10000 samples): 0.3494
+#> p-value (based on 10000 samples): 0.3453
 
 summary(st_d1)  ## basic information plus estimated cell means
 #> 
@@ -112,7 +111,7 @@ summary(st_d1)  ## basic information plus estimated cell means
 #> 
 #> Fit value (SSE): 1.653
 #> Fit difference to MR model (SSE): 1.653
-#> p-value (based on 10000 samples): 0.3494 
+#> p-value (based on 10000 samples): 0.3453 
 #> 
 #> Estimated cell means:
 #>   rule.based information.integration within  between
@@ -149,7 +148,7 @@ st_d3
 #> 
 #> Fit value (SSE): 1.749
 #> Fit difference to MR model (SSE): 1.577
-#> p-value (based on 1000 samples): 0.155
+#> p-value (based on 1000 samples): 0.159
 summary(st_d3)
 #> 
 #> CMR fit to 8 data points with call:
@@ -159,7 +158,7 @@ summary(st_d3)
 #> 
 #> Fit value (SSE): 1.749
 #> Fit difference to MR model (SSE): 1.577
-#> p-value (based on 1000 samples): 0.155 
+#> p-value (based on 1000 samples): 0.159 
 #> 
 #> Estimated cell means:
 #>   rule.based information.integration within  between
@@ -198,8 +197,8 @@ adding `pars` to the output, that’s it.
 
 ## todos JT
 
-What is generally missing in stacmr is a wrapper for binomial data. This
-is currently in the dunn & kalish format in the files that include BN.
+apper for binomial data. This is currently in the dunn & kalish format
+in the files that include BN.
 
 in the upstream code pars argument is missing in jMRfits.R -\> this is
 is definitely an issue that should be filed in STA
