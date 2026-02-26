@@ -89,7 +89,7 @@ gen2list = function (data=NULL, varnames) {
   return (y)
 }
 
-is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  {
+is_wholenumber <- function(x, tol = .Machine$double.eps^0.5)  {
   if (is.numeric(x)) all(abs(x - round(x)) < tol)
   else FALSE
   }
@@ -102,7 +102,7 @@ check_col <- function(data, col, factor_int = FALSE) {
   }
   if (factor_int) {
     fac <- vapply(col, function(x) is.factor(data[[x]]), NA)
-    int <- vapply(col, function(x) is.wholenumber(data[[x]]), NA) |
+    int <- vapply(col, function(x) is_wholenumber(data[[x]]), NA) |
       vapply(col, function(x) is.integer(data[[x]]), NA)
     if (length(col) == 1 & !(fac | int)) {
       stop(col_tested, " '", not_in,  "' is neither factor nor integer variable.", call. = FALSE)
