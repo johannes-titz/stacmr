@@ -67,6 +67,7 @@ conjoint monotonic model to the data and calculates the \emph{p}-value.
 \examples{
 
 data(delay)
+\donttest{
 # Fit and test CMR State-Trace Analysis Model
 st_d1 <- cmr(
   data = delay,
@@ -83,6 +84,7 @@ summary(st_d1)  # basic information plus estimated cell means
 str(st_d1, 1, give.attr = FALSE) # overview of information in fitted object
 
 # same model with approximate method gives same result here
+
 st_d2 <- cmr(
   data = delay,
   col_value = "pc",
@@ -108,5 +110,6 @@ st_d3 <- cmr(
 )
 st_d3
 summary(st_d3)
+}
 
 }

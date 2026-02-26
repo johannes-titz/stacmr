@@ -64,7 +64,7 @@ given partial order.
 }
 \examples{
 data(delay)
-
+\donttest{
 # for delay data: order of factor-levels corresponds to expected partial order.
 # Therefore, 'partial = "auto"' can be used to enforce this order.
 mr_d1 <- mr(
@@ -110,5 +110,5 @@ mr_d3 <- mr(
   )
 )
 mr_d3
- 
+}
 }

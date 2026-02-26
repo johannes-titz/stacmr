@@ -35,6 +35,14 @@ feedback, a blank screen followed the duration of which was again defined the
 \code{delay} condition. The screen was blank for either 5 s (No Delay condition)
 or 0.5 s (Delay condition) before the next trial commenced. The sequence and
 timing of these events were same as those used by Maddox and Ing (2005).
+
+\describe{
+\item{participant}{id}
+\item{delay}{delay condition (delay or no delay)}
+\item{strucutre}{rule-based or information-integration}
+\item{block}{block number}
+\item{pc}{percent correct}
+}
 }
 }
 \source{
