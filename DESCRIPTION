@@ -1,23 +1,27 @@
 Package: stacmr
 Version: 0.0-1
-Title: Conjoint Monotonic Regression approach to State-Trace Analysis
+Title: Coupled Monotonic Regression for State-Trace Analysis
 Authors@R: c(
           person(given="John", family="Dunn", role=c("aut")),
           person(given="Luke", family="Finlay", role=c("aut")),
-          person(given="Henrik", family="Singmann", role=c("aut", "cre"),
+          person(given="Henrik", family="Singmann", role=c("aut"),
           email="singmann@gmail.com", comment=c(ORCID="0000-0002-4842-3657")),
-          person(given="Michael L.", family="Kalish", role=c("ctb"))
+          person(given="Michael L.", family="Kalish", role=c("aut")),
+          person(given = "Johannes", family  = "Titz",
+          email = "johannes.titz@gmail.com", role = c("aut", "cre"),
+          comment = c(ORCID = "0000-0002-1102-5719"))
             )
-Description: State-trace analysis (STA; Bamber, 1979, <doi:10.1016/0022-2496(79)90016-6>) is a general method to determine properties of the latent structure that mediates the effects of one or more independent variables on two or more dependent variables. stacmr implements the Conjoint Monotonic Regression approach to State-Trace Analysis described in Dunn and Kalish (2018, <doi:10.1007/978-3-319-73129-2>).
-Depends: R (>= 2.10.0), rJava (>= 0.5-0)
+Description: State-trace analysis (STA; Bamber, 1979, <doi:10.1016/0022-2496(79)90016-6>) is a general method to determine properties of the latent structure that mediates the effects of one or more independent variables on two or more dependent variables. 'stacmr' implements the Coupled Monotonic Regression approach to State-Trace Analysis described in Dunn and Kalish (2018, <doi:10.1007/978-3-319-73129-2>).
+Depends: R (>= 3.5.0)
 Encoding: UTF-8
-SystemRequirements: Java (>= 1.5)
+SystemRequirements: Java (>= 1.8)
 License: GPL-2
 Imports: 
     magic,
     ggplot2,
     stats,
-    methods
+    methods,
+    rJava
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Suggests: 
