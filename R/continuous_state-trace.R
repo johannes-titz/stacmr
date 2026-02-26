@@ -1,10 +1,10 @@
 #' Coupled Monotonic Regression
-#' 
+#'
 #' `cmr` is the main function that conducts the CMR (state-trace) analysis for
 #' continuous data. It takes the data as a `data.frame` and an optional partial
 #' order and returns a fitted model object of class `stacmr`. It fits the
 #' conjoint monotonic model to the data and calculates the *p*-value.
-#' 
+#'
 #' @param  data `data.frame` containing data aggregated by participant and
 #'   relevant variables in columns.
 #' @param  col_value `character`. Name of column in `data` containing numerical
@@ -31,10 +31,54 @@
 #'   approximate algorithm that should be used for large problems.
 #' @param tolerance tolerance used during optimization for numerical stability
 #'   (function values smaller than `tolerance` are set to 0)
-#'   
-#' @example examples/examples.delay.R
+#'
+#' @examples
+#'
+#' data(delay)
+#' # Fit and test CMR State-Trace Analysis Model
+#' st_d1 <- cmr(
+#'   data = delay,
+#'   col_value = "pc",
+#'   col_participant = "participant",
+#'   col_dv = "structure",
+#'   col_within = "block",
+#'   col_between = "delay",
+#'   nsample = 1e3
+#' )
+#' st_d1  # basic information about coupled-monotonic model
+#'
+#' summary(st_d1)  # basic information plus estimated cell means
+#' str(st_d1, 1, give.attr = FALSE) # overview of information in fitted object
+#'
+#' # same model with approximate method gives same result here
+#' st_d2 <- cmr(
+#'   data = delay,
+#'   col_value = "pc",
+#'   col_participant = "participant",
+#'   col_dv = "structure",
+#'   col_within = "block",
+#'   col_between = "delay",
+#'   approx = TRUE,
+#'   nsample = 1e3
+#' )
+#' summary(st_d2)
+#'
+#' # for delay data: order of factor-levels corresponds to expected partial order.
+#' # Therefore, 'partial = "auto"' can be used to enforce this order.
+#' st_d3 <- cmr(
+#'   data = delay,
+#'   col_value = "pc",
+#'   col_participant = "participant",
+#'   col_dv = "structure",
+#'   col_within = "block",
+#'   col_between = "delay",
+#'   partial = "auto"
+#' )
+#' st_d3
+#' summary(st_d3)
+#'
 #' @import rJava
-#' 
+#'
 #' @export
 cmr <- function (data, 
                  col_value, col_participant, col_dv, 
@@ -205,7 +249,55 @@ cmr <- function (data,
 #' @param tolerance tolerance used during optimization for numerical stability
 #'   (function values smaller than `tolerance` are set to 0)
 #'   
-#' @example examples/examples.delay.R
+#' @examples
+#' data(delay)
+#' 
+#' # for delay data: order of factor-levels corresponds to expected partial order.
+#' # Therefore, 'partial = "auto"' can be used to enforce this order.
+#' mr_d1 <- mr(
+#'   data = delay, 
+#'   col_value = "pc", 
+#'   col_participant = "participant",
+#'   col_dv = "structure", 
+#'   col_within = "block", 
+#'   col_between = "delay", 
+#'   nsample = 1e3, 
+#'   partial = "auto"
+#' )
+#' mr_d1
+#' 
+#' # Alternatively, partial order can be specified symbolically:
+#' mr_d2 <- mr(
+#'   data = delay, 
+#'   col_value = "pc", 
+#'   col_participant = "participant",
+#'   col_dv = "structure", 
+#'   col_within = "block", 
+#'   col_between = "delay", 
+#'   nsample = 1e3, 
+#'   partial = list(
+#'     delay = "delay < `no delay`",
+#'     block = "B1 < B2 < B3 < B4"
+#'   )
+#' )
+#' mr_d2
+#' 
+#' # Partial order can also be specified partially symbolically:
+#' mr_d3 <- mr(
+#'   data = delay, 
+#'   col_value = "pc", 
+#'   col_participant = "participant",
+#'   col_dv = "structure", 
+#'   col_within = "block", 
+#'   col_between = "delay", 
+#'   nsample = 1e3, 
+#'   partial = list(
+#'     delay = "auto",
+#'     block = "B1 < B2 < B3 < B4"
+#'   )
+#' )
+#' mr_d3
+#'  
 #' @import rJava
 #' 
 #' @export

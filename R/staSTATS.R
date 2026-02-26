@@ -46,6 +46,22 @@
 #' 
 #' @inheritParams cmr
 #' 
+#' @examples
+#' data(delay)
+#' 
+#' stats <- sta_stats(
+#'   data = delay, 
+#'   col_value = "pc", 
+#'   col_participant = "participant",
+#'   col_dv = "structure", 
+#'   col_within = "block", 
+#'   col_between = "delay"
+#' )
+#' stats
+#' str(stats)
+#' summary(stats)
+#' 
+#' 
 #' @export
 sta_stats <- function(data, 
                      col_value, col_participant, col_dv, col_within, 
