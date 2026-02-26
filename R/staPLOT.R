@@ -5,6 +5,7 @@
 #' @param data Name of the data set and is the one required argument. It may be
 #'   in either general or list format, or in summary statistics form (i.e., the
 #'   output of staSTATS).
+#' @param vars ...?
 #' @param groups \code{list} identifying the conditions to be distinguished in
 #'   the plot with different markers.
 #' @param  grouplabels \code{list} consisting of the labels for the groups
@@ -13,8 +14,8 @@
 #'   y-axis, respectively.
 #' @param xlim,ylim vector of axes limits.
 #' @param  pred \code{list} of predicted values for each condition. Typically,
-#'   this is the best-fitting values returned by \code{\link{staMR}} or
-#'   \code{\link{staCMR}}.
+#'   this is the best-fitting values returned by \code{\link{mr}} or
+#'   \code{\link{cmr}}.
 #' @param  palette identifies a color palette (see
 #'   \code{\link[ggplot2]{scale_colour_brewer}}) for plotting points.
 #'   
