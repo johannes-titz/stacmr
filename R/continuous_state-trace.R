@@ -35,6 +35,7 @@
 #' @examples
 #'
 #' data(delay)
+#' \donttest{
 #' # Fit and test CMR State-Trace Analysis Model
 #' st_d1 <- cmr(
 #'   data = delay,
@@ -51,6 +52,7 @@
 #' str(st_d1, 1, give.attr = FALSE) # overview of information in fitted object
 #'
 #' # same model with approximate method gives same result here
+#' 
 #' st_d2 <- cmr(
 #'   data = delay,
 #'   col_value = "pc",
@@ -76,7 +78,8 @@
 #' )
 #' st_d3
 #' summary(st_d3)
-#'
+#' }
+#' 
 #' @import rJava
 #'
 #' @export
@@ -251,7 +254,7 @@ cmr <- function (data,
 #'   
 #' @examples
 #' data(delay)
-#' 
+#' \donttest{
 #' # for delay data: order of factor-levels corresponds to expected partial order.
 #' # Therefore, 'partial = "auto"' can be used to enforce this order.
 #' mr_d1 <- mr(
@@ -297,7 +300,7 @@ cmr <- function (data,
 #'   )
 #' )
 #' mr_d3
-#'  
+#' }
 #' @import rJava
 #' 
 #' @export
