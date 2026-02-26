@@ -15,8 +15,8 @@ knitr::opts_chunk$set(
 # stacmr
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/monotonicity/stacmr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/monotonicity/stacmr/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/monotonicity/stacmr/graph/badge.svg)](https://app.codecov.io/gh/monotonicity/stacmr)
+[![R-CMD-check](https://github.com/johannes-titz/stacmr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/johannes-titz/stacmr/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/johannes-titz/stacmr/graph/badge.svg)](https://app.codecov.io/gh/johannes-titz/stacmr)
 <!-- badges: end -->
 
 The goal of `stacmr` is to provide functionality for state-trace analysis via conjoint monotonic regression. The main function for this is `cmr()`. In addition, it provides functionality for fitting monotonic regression models with function `mr()`.
