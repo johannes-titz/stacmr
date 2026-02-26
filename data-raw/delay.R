@@ -5,8 +5,8 @@ download.file("https://raw.githubusercontent.com/michaelkalish/STA/refs/heads/ma
 d <- readr::read_tsv("data-raw/delay.tsv", col_names = c("participant",
                      "delay", "structure", "B1", "B2", "B3", "B4"))
 d$participant <- as.factor(d$participant)
-d$delay <- factor(d$delay, levels = c("1", "2"), labels = c("no delay", "delay"))
-d$structure <- factor(d$structure, levels = c(1, 2), labels = c("rule-based", "information-integration"))
+d$delay <- factor(d$delay, levels = c("2", "1"), labels = c("delay", "no delay"))
+d$structure <- factor(d$structure, levels = c("1", "2"), labels = c("rule-based", "information-integration"))
 head(d)
 
 d2 <- tidyr::pivot_longer(d, cols = B1:B4, names_to = "block", values_to = "pc")
