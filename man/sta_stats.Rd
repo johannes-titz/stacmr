@@ -79,6 +79,23 @@ internal use, but the \code{print} and \code{summary} method for the returned ob
 of class \code{sta_stats} also provide a convenient overview of the data point of
 the state-trace analysis.
 }
+\examples{
+data(delay)
+
+stats <- sta_stats(
+  data = delay, 
+  col_value = "pc", 
+  col_participant = "participant",
+  col_dv = "structure", 
+  col_within = "block", 
+  col_between = "delay"
+)
+stats
+str(stats)
+summary(stats)
+
+
+}
 \references{
 Ledoit, O. & Wolf, M. (2004). Honey, I shrunk the sample
 covariance matrix. \emph{The Journal of Portfolio Management}, 30(4), 110-119.

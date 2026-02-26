@@ -21,6 +21,8 @@ staPLOT(
 in either general or list format, or in summary statistics form (i.e., the
 output of staSTATS).}
 
+\item{vars}{...?}
+
 \item{groups}{\code{list} identifying the conditions to be distinguished in
 the plot with different markers.}
 
@@ -33,8 +35,8 @@ y-axis, respectively.}
 \item{xlim, ylim}{vector of axes limits.}
 
 \item{pred}{\code{list} of predicted values for each condition. Typically,
-this is the best-fitting values returned by \code{\link{staMR}} or
-\code{\link{staCMR}}.}
+this is the best-fitting values returned by \code{\link{mr}} or
+\code{\link{cmr}}.}
 
 \item{palette}{identifies a color palette (see
 \code{\link[ggplot2]{scale_colour_brewer}}) for plotting points.}

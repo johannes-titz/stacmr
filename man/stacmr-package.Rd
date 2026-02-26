@@ -4,22 +4,19 @@
 \name{stacmr-package}
 \alias{stacmr}
 \alias{stacmr-package}
-\title{stacmr: Conjoint Monotonic Regression approach to State-Trace Analysis}
+\title{stacmr: Coupled Monotonic Regression for State-Trace Analysis}
 \description{
-State-trace analysis (STA; Bamber, 1979, \doi{10.1016/0022-2496(79)90016-6}) is a general method to determine properties of the latent structure that mediates the effects of one or more independent variables on two or more dependent variables. stacmr implements the Conjoint Monotonic Regression approach to State-Trace Analysis described in Dunn and Kalish (2018, \doi{10.1007/978-3-319-73129-2}).
+State-trace analysis (STA; Bamber, 1979, \doi{10.1016/0022-2496(79)90016-6}) is a general method to determine properties of the latent structure that mediates the effects of one or more independent variables on two or more dependent variables. 'stacmr' implements the Coupled Monotonic Regression approach to State-Trace Analysis described in Dunn and Kalish (2018, \doi{10.1007/978-3-319-73129-2}).
 }
 \author{
-\strong{Maintainer}: Henrik Singmann \email{singmann@gmail.com} (\href{https://orcid.org/0000-0002-4842-3657}{ORCID})
+\strong{Maintainer}: Johannes Titz \email{johannes.titz@gmail.com} (\href{https://orcid.org/0000-0002-1102-5719}{ORCID})
 
 Authors:
 \itemize{
   \item John Dunn
   \item Luke Finlay
-}
-
-Other contributors:
-\itemize{
-  \item Michael L. Kalish [contributor]
+  \item Henrik Singmann \email{singmann@gmail.com} (\href{https://orcid.org/0000-0002-4842-3657}{ORCID})
+  \item Michael L. Kalish
 }
 
 }
